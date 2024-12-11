@@ -51,6 +51,9 @@
       </div>
     </div>
 
+    <!-- Número de Recepciones -->
+    <p class="text-gray-700 mb-4">Número de Recepciones: <span id="reception-number">0</span></p>
+
     <!-- Mapa -->
     <div id="map" class="w-full h-48 rounded-lg shadow-md mb-6 cursor-pointer" onclick="redirectToMap()"></div>
 
@@ -71,8 +74,8 @@
 
   <!-- Sección Extendida -->
   <div class="section w-full p-6 text-center mt-10 text-white">
-    <h2 class="text-2xl font-semibold text-black">Sobre el Evento</h2>
-    <p class="mt-4 text-black">
+    <h2 class="text-2xl font-semibold">Sobre el Evento</h2>
+    <p class="mt-4">
       Únete a la celebración de los 15 años de nuestro querido primo. Será una noche inolvidable llena de alegría, música y momentos especiales. ¡Te esperamos!
     </p>
   </div>
@@ -101,20 +104,6 @@
   </div>
 
   <script>
-    // Función para redirigir a WhatsApp
-    function redirectToWhatsApp() {
-      const name = document.getElementById('name').value.trim();
-      const phoneNumber = "+526643467467"; // Número de WhatsApp con formato internacional
-      const defaultMessage = `¡Hola! Soy ${name}, confirmo mi asistencia a los 15 años de Damian🎉`;
-
-      if (name) {
-        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
-        window.open(url, '_blank');
-      } else {
-        alert("Por favor, ingresa tu nombre para confirmar.");
-      }
-    }
-
     // Configurar cuenta regresiva
     const targetDate = new Date('April 12, 2025 20:00:00').getTime();
 
@@ -161,6 +150,36 @@
         title: "Salón Fiestas Felices",
       });
     }
+
+        // Guardar el número original de recepciones
+    let originalReceptions;
+
+    function setReceptionNumber() {
+    const params = new URLSearchParams(window.location.search);
+    const receptions = params.get('receptions');
+    const receptionElement = document.getElementById('reception-number');
+
+    if (receptions) {
+        receptionElement.textContent = receptions;
+        originalReceptions = receptions; // Guardar el número inicial
+    }
+    }
+
+    // Modificar el mensaje de WhatsApp para incluir el número original de recepciones
+    function redirectToWhatsApp() {
+    const name = document.getElementById('name').value.trim();
+    const phoneNumber = "5211234567890"; // Número de WhatsApp con formato internacional
+    const defaultMessage = `¡Hola! Soy ${name}, confirmo mi asistencia a los 15 años 🎉 con ${originalReceptions} personas.`;
+
+    if (name) {
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
+        window.open(url, '_blank');
+    } else {
+        alert("Por favor, ingresa tu nombre para confirmar.");
+    }
+    }
+
+    setReceptionNumber();
   </script>
 
   <!-- Google Maps API -->
