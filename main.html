@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación - 15 Años</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .digital-clock {
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 2px;
+    }
+    .button-large {
+      background-size: cover;
+      background-position: center;
+      height: 150px;
+    }
+    body {
+      background-image: url('https://via.placeholder.com/1600x900?text=Fondo+de+Invitaci%C3%B3n');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="bg-teal-50 text-gray-800 min-h-screen flex flex-col items-center">
+  <!-- Sección Principal -->
+  <div class="bg-white bg-opacity-90 shadow-lg rounded-lg p-6 w-full max-w-sm mt-10 text-center">
+    <h1 class="text-3xl font-bold text-teal-600">✨ ¡Te Invitamos a los 15 Años de Damian! ✨</h1>
+    <img src="https://via.placeholder.com/400x200?text=Foto+de+Damian" alt="Foto de Damian" class="mt-4 rounded-lg shadow-md">
+    <p class="text-gray-700 mt-4">📅 <strong>Fecha:</strong> 12 de abril, 2025</p>
+    <p class="text-gray-700">⏰ <strong>Hora:</strong> 8:00 PM</p>
+    <p class="text-gray-700 mb-6">📍 <strong>Dirección:</strong> Salón Social El Detalle, Av. Manuel M. Doria 12507, Libertad, 22400 Tijuana, B.C.</p>
+
+    <!-- Contador -->
+    <div id="countdown" class="digital-clock text-2xl font-bold text-gray-800 flex justify-between bg-teal-200 rounded-lg py-4 px-6 shadow-md mb-6">
+      <div class="text-center">
+        <span id="days" class="block text-4xl">00</span>
+        <span class="text-sm text-gray-600">Días</span>
+      </div>
+      <div class="text-center">
+        <span id="hours" class="block text-4xl">00</span>
+        <span class="text-sm text-gray-600">Horas</span>
+      </div>
+      <div class="text-center">
+        <span id="minutes" class="block text-4xl">00</span>
+        <span class="text-sm text-gray-600">Minutos</span>
+      </div>
+      <div class="text-center">
+        <span id="seconds" class="block text-4xl">00</span>
+        <span class="text-sm text-gray-600">Segundos</span>
+      </div>
+    </div>
+
+    <!-- Mapa -->
+    <div id="map" class="w-full h-48 rounded-lg shadow-md mb-6 cursor-pointer" onclick="redirectToMap()"></div>
+
+    <!-- Botón para Confirmar -->
+    <p class="text-gray-700 mb-4">Confirma tu asistencia vía WhatsApp:</p>
+    <input 
+      type="text" 
+      id="name" 
+      placeholder="Tu nombre" 
+      class="border border-gray-300 rounded-lg p-2 w-full focus:ring-2 focus:ring-teal-400 focus:outline-none"
+    />
+    <button 
+      onclick="redirectToWhatsApp()" 
+      class="mt-4 bg-teal-500 text-white py-2 px-4 rounded-lg w-full font-medium hover:bg-teal-600 transition">
+      Confirmar Asistencia
+    </button>
+  </div>
+
+  <!-- Sección Extendida -->
+  <div class="section w-full p-6 text-center mt-10 text-white">
+    <h2 class="text-2xl font-semibold text-black">Sobre el Evento</h2>
+    <p class="mt-4 text-black">
+      Únete a la celebración de los 15 años de nuestro querido primo. Será una noche inolvidable llena de alegría, música y momentos especiales. ¡Te esperamos!
+    </p>
+  </div>
+
+  <!-- Contenedores para Iglesia y Salón -->
+  <div class="w-full flex flex-col lg:flex-row justify-between items-center p-6 gap-4">
+    <!-- Botón Iglesia -->
+    <div 
+      class="button-large bg-center bg-cover w-full lg:w-1/2 rounded-lg shadow-md text-white flex items-center justify-center"
+      style="background-image: url('https://via.placeholder.com/600x400?text=Iglesia');"
+    >
+      <span class="text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded-md">
+        Iglesia: San Pedro
+      </span>
+    </div>
+
+    <!-- Botón Salón -->
+    <div 
+      class="button-large bg-center bg-cover w-full lg:w-1/2 rounded-lg shadow-md text-white flex items-center justify-center"
+      style="background-image: url('https://via.placeholder.com/600x400?text=Sal%C3%B3n');"
+    >
+      <span class="text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded-md">
+        Salón: Fiestas Felices
+      </span>
+    </div>
+  </div>
+
+  <script>
+    // Función para redirigir a WhatsApp
+    function redirectToWhatsApp() {
+      const name = document.getElementById('name').value.trim();
+      const phoneNumber = "+526643467467"; // Número de WhatsApp con formato internacional
+      const defaultMessage = `¡Hola! Soy ${name}, confirmo mi asistencia a los 15 años de Damian🎉`;
+
+      if (name) {
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
+        window.open(url, '_blank');
+      } else {
+        alert("Por favor, ingresa tu nombre para confirmar.");
+      }
+    }
+
+    // Configurar cuenta regresiva
+    const targetDate = new Date('April 12, 2025 20:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById('days').innerText = "00";
+        document.getElementById('hours').innerText = "00";
+        document.getElementById('minutes').innerText = "00";
+        document.getElementById('seconds').innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = days;
+      document.getElementById('hours').innerText = hours;
+      document.getElementById('minutes').innerText = minutes;
+      document.getElementById('seconds').innerText = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // Redirigir al enlace de Google Maps
+    function redirectToMap() {
+      window.open('https://maps.app.goo.gl/Nufhfcxg2aaHMFiT8', '_blank');
+    }
+
+    // Configurar Google Maps
+    function initMap() {
+      const location = { lat: 32.53531508366249, lng: -117.00204054111555 }; // Coordenadas del salón
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: location,
+      });
+      new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "Salón Fiestas Felices",
+      });
+    }
+  </script>
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgBxfCS1B63jNEXlE2F8BRzRBavtvb_Q4&callback=initMap" async defer></script>
+</body>
+</html>
