@@ -22,60 +22,62 @@
     }
   </style>
 </head>
-<body class="bg-teal-50 text-gray-800 min-h-screen flex flex-col items-center">
+<body class="bg-[#E9E3D2] text-[#4D7E57] min-h-screen flex flex-col items-center">
   <!-- Sección Principal -->
   <div class="bg-white bg-opacity-90 shadow-lg rounded-lg p-6 w-full max-w-sm mt-10 text-center">
-    <h1 class="text-3xl font-bold text-teal-600">✨ ¡Te Invitamos a los 15 Años de Damian! ✨</h1>
+    <h1 class="text-3xl font-bold text-[#4D7E57]">✨ ¡Te Invitamos a los 15 Años de Damian! ✨</h1>
     <img src="https://via.placeholder.com/400x200?text=Foto+de+Damian" alt="Foto de Damian" class="mt-4 rounded-lg shadow-md">
-    <p class="text-gray-700 mt-4">📅 <strong>Fecha:</strong> 12 de abril, 2025</p>
-    <p class="text-gray-700">⏰ <strong>Hora:</strong> 8:00 PM</p>
-    <p class="text-gray-700 mb-6">📍 <strong>Dirección:</strong> Salón Social El Detalle, Av. Manuel M. Doria 12507, Libertad, 22400 Tijuana, B.C.</p>
+    <p class="text-[#4D7E57] mt-4">📅 <strong>Fecha:</strong> 12 de abril, 2025</p>
+    <p class="text-[#4D7E57]">⏰ <strong>Hora:</strong> 8:00 PM</p>
+    <p class="text-[#4D7E57] mb-6">📍 <strong>Dirección:</strong> Salón Social El Detalle, Av. Manuel M. Doria 12507, Libertad, 22400 Tijuana, B.C.</p>
 
     <!-- Contador -->
-    <div id="countdown" class="digital-clock text-2xl font-bold text-gray-800 flex justify-between bg-teal-200 rounded-lg py-4 px-6 shadow-md mb-6">
+    <div id="countdown" class="digital-clock text-2xl font-bold text-[#4D7E57] flex justify-between bg-[#8FB696] rounded-lg py-4 px-6 shadow-md mb-6">
       <div class="text-center">
-        <span id="days" class="block text-4xl">00</span>
-        <span class="text-sm text-gray-600">Días</span>
+        <span id="days" class="block text-4xl text-[#E9E3D2]">00 :</span>
+        <span class="text-sm text-[#E9E3D2]">Días</span>
       </div>
       <div class="text-center">
-        <span id="hours" class="block text-4xl">00</span>
-        <span class="text-sm text-gray-600">Horas</span>
+        <span id="hours" class="block text-4xl text-[#E9E3D2]">00 :</span>
+        <span class="text-sm text-[#E9E3D2]"> Horas </span>
       </div>
       <div class="text-center">
-        <span id="minutes" class="block text-4xl">00</span>
-        <span class="text-sm text-gray-600">Minutos</span>
+        <span id="minutes" class="block text-4xl text-[#E9E3D2]">00 :</span>
+        <span class="text-sm text-[#E9E3D2]"> Minutos </span>
       </div>
       <div class="text-center">
-        <span id="seconds" class="block text-4xl">00</span>
-        <span class="text-sm text-gray-600">Segundos</span>
+        <span id="seconds" class="block text-4xl text-[#E9E3D2]">00</span>
+        <span class="text-sm text-[#E9E3D2]"> Segundos</span>
       </div>
     </div>
 
     <!-- Número de Recepciones -->
-    <p class="text-gray-700 mb-4">Número de Recepciones: <span id="reception-number">0</span></p>
+    <p class="text-[#4D7E57] font-bold mb-4">Número de Recepciones: <span id="reception-number">0</span></p>
 
+    <!-- Indicaciones -->
+    <p class="text-[#4D7E57] font-bold mb-4">Haga doble clic para redirigir a Google Maps</p>
     <!-- Mapa -->
-    <div id="map" class="w-full h-48 rounded-lg shadow-md mb-6 cursor-pointer" onclick="redirectToMap()"></div>
+    <div id="map" class="w-full h-48 rounded-lg shadow-md mb-6 cursor-pointer" ondblclick="redirectToMap()"></div>
 
     <!-- Botón para Confirmar -->
-    <p class="text-gray-700 mb-4">Confirma tu asistencia vía WhatsApp:</p>
+    <p class="text-[#4D7E57] mb-4">Confirma tu asistencia vía WhatsApp:</p>
     <input 
       type="text" 
       id="name" 
       placeholder="Tu nombre" 
-      class="border border-gray-300 rounded-lg p-2 w-full focus:ring-2 focus:ring-teal-400 focus:outline-none"
+      class="border border-[#8FB696] rounded-lg p-2 w-full focus:ring-2 focus:ring-[#8FB696] focus:outline-none"
     />
     <button 
       onclick="redirectToWhatsApp()" 
-      class="mt-4 bg-teal-500 text-white py-2 px-4 rounded-lg w-full font-medium hover:bg-teal-600 transition">
+      class="mt-4 bg-[#4D7E57] text-white py-2 px-4 rounded-lg w-full font-medium hover:bg-[#8FB696] transition">
       Confirmar Asistencia
     </button>
   </div>
 
   <!-- Sección Extendida -->
   <div class="section w-full p-6 text-center mt-10 text-white">
-    <h2 class="text-2xl font-semibold text-black">Sobre el Evento</h2>
-    <p class="mt-4 text-black">
+    <h2 class="text-2xl font-semibold text-[#4D7E57]">Sobre el Evento</h2>
+    <p class="mt-4 text-[#4D7E57]">
       Únete a la celebración de los 15 años de Damian. Será una noche inolvidable llena de alegría, música y momentos especiales. ¡Te esperamos!
     </p>
   </div>
@@ -108,11 +110,13 @@
   <!-- Detalles de la Iglesia -->
   <div id="church-details" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
     <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-center">
-      <h3 class="text-2xl font-bold text-teal-600 mb-4">Iglesia: Nuestra Señora de Loreto</h3>
+      <h3 class="text-2xl font-bold text-[#4D7E57] mb-4">Iglesia: Nuestra Señora de Loreto</h3>
       <img src="assets/img/iglesia.png" alt="Iglesia Nuestra Señora de Loreto" class="rounded-lg mb-4 mx-auto">
-      <p class="text-gray-700 mb-4">📍 <strong>Dirección:</strong> Av. de la Iglesia, Colonia Centro, Ciudad Ejemplo</p>
-      <div id="church-map" class="w-full h-48 rounded-lg shadow-md cursor-pointer" onclick="redirectToChurchMap()"></div>
-      <button onclick="closeChurchDetails()" class="mt-4 bg-teal-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-teal-600 transition">
+      <p class="text-[#4D7E57] mb-4">📍 <strong>Dirección:</strong> C. 19 962, Libertad, 22400 Tijuana, B.C.</p>
+      <!-- Indicaciones -->
+      <p class="text-[#4D7E57] font-bold mb-4">Haga doble clic para redirigir a Google Maps</p>
+      <div id="map" class="w-full h-48 rounded-lg shadow-md cursor-pointer" ondblclick="redirectToChurchMap()"></div>
+      <button onclick="closeChurchDetails()" class="mt-4 bg-[#4D7E57] text-white py-2 px-4 rounded-lg font-medium hover:bg-[#8FB696] transition">
         Cerrar
       </button>
     </div>
@@ -121,11 +125,13 @@
   <!-- Detalles del Salón -->
   <div id="salon-details" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
     <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-center">
-      <h3 class="text-2xl font-bold text-teal-600 mb-4">Salón Social El Detalle</h3>
+      <h3 class="text-2xl font-bold text-[#4D7E57] mb-4">Salón Social El Detalle</h3>
       <img src="assets/img/salon-fuera.png" alt="Salón Social El Detalle" class="rounded-lg mb-4">
-      <p class="text-gray-700 mb-4">📍 <strong>Dirección:</strong> Salón Social El Detalle, Av. Manuel M. Doria 12507, Libertad, 22400 Tijuana, B.C.</p>
-      <div id="map" class="w-full h-48 rounded-lg shadow-md cursor-pointer" onclick="redirectToMap()"></div>
-      <button onclick="closeSalonDetails()" class="mt-4 bg-teal-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-teal-600 transition">
+      <p class="text-[#4D7E57] mb-4">📍 <strong>Dirección:</strong> Av. Manuel M. Doria 12507, Libertad, 22400 Tijuana, B.C.</p>
+      <!-- Indicaciones -->
+      <p class="text-[#4D7E57] font-bold mb-4">Haga doble clic para redirigir a Google Maps</p>
+      <div id="map" class="w-full h-48 rounded-lg shadow-md mb-6 cursor-pointer" ondblclick="redirectToSalonMap()"></div>
+      <button onclick="closeSalonDetails()" class="mt-4 bg-[#4D7E57] text-white py-2 px-4 rounded-lg font-medium hover:bg-[#8FB696] transition">
         Cerrar
       </button>
     </div>
@@ -212,18 +218,6 @@
         title: "Iglesia Nuestra Señora de Loreto",
       });
     }
-
-    // Mostrar detalles de la iglesia
-    function openChurchDetails() {
-      document.getElementById('church-details').classList.remove('hidden');
-      initChurchMap();
-    }
-
-    // Cerrar detalles de la iglesia
-    function closeChurchDetails() {
-      document.getElementById('church-details').classList.add('hidden');
-    }
-
     // Configurar Google Maps para el salón
     function initMap() {
       const location = { lat: 32.53531508366249, lng: -117.00204054111555 }; // Coordenadas del salón
@@ -233,6 +227,20 @@
       });
       new google.maps.Marker({
         position: location,
+        map: map,
+        title: "Salón Social El Detalle",
+      });
+    }
+
+      // Configurar Google Maps para el salón
+    function initSalonMap() {
+      const salonLocation = { lat: 32.53531508366249, lng: -117.00204054111555 }; // Coordenadas del salón
+      const map = new google.maps.Map(document.getElementById("salon-map"), {
+        zoom: 15,
+        center: salonLocation,
+      });
+      new google.maps.Marker({
+        position: salonLocation,
         map: map,
         title: "Salón Social El Detalle",
       });
@@ -271,6 +279,5 @@
 
   <!-- Google Maps API -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaGEjDxPSZ61a402ShVhmgjEP2tO-Wotk&callback=initMap" async defer></script>
-  </script>
 </body>
 </html>
