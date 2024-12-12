@@ -16,7 +16,7 @@
       height: 150px;
     }
     body {
-      background-image: url('https://via.placeholder.com/1600x900?text=Fondo+de+Invitaci%C3%B3n');
+      background-image: url('assets/img/istockphoto-1423403477-170667a.jpg');
       background-size: cover;
       background-position: center;
     }
@@ -74,9 +74,9 @@
 
   <!-- Sección Extendida -->
   <div class="section w-full p-6 text-center mt-10 text-white">
-    <h2 class="text-2xl font-semibold">Sobre el Evento</h2>
-    <p class="mt-4">
-      Únete a la celebración de los 15 años de nuestro querido primo. Será una noche inolvidable llena de alegría, música y momentos especiales. ¡Te esperamos!
+    <h2 class="text-2xl font-semibold text-black">Sobre el Evento</h2>
+    <p class="mt-4 text-black">
+      Únete a la celebración de los 15 años de Damian. Será una noche inolvidable llena de alegría, música y momentos especiales. ¡Te esperamos!
     </p>
   </div>
 
@@ -84,22 +84,50 @@
   <div class="w-full flex flex-col lg:flex-row justify-between items-center p-6 gap-4">
     <!-- Botón Iglesia -->
     <div 
-      class="button-large bg-center bg-cover w-full lg:w-1/2 rounded-lg shadow-md text-white flex items-center justify-center"
-      style="background-image: url('https://via.placeholder.com/600x400?text=Iglesia');"
+      class="button-large bg-center bg-cover w-full lg:w-1/2 rounded-lg shadow-md text-white flex items-center justify-center cursor-pointer"
+      style="background-image: url('assets/img/iglesia.png');"
+      onclick="openChurchDetails()"
     >
       <span class="text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded-md">
-        Iglesia: San Pedro
+        Iglesia: Nuestra Señora de Loreto
       </span>
     </div>
 
     <!-- Botón Salón -->
     <div 
-      class="button-large bg-center bg-cover w-full lg:w-1/2 rounded-lg shadow-md text-white flex items-center justify-center"
-      style="background-image: url('https://via.placeholder.com/600x400?text=Sal%C3%B3n');"
+      class="button-large bg-center bg-cover w-full lg:w-1/2 rounded-lg shadow-md text-white flex items-center justify-center cursor-pointer"
+      style="background-image: url('assets/img/salon-dentro.png');"
+      onclick="openSalonDetails()"
     >
       <span class="text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded-md">
-        Salón: Fiestas Felices
+        Salón Social El Detalle
       </span>
+    </div>
+  </div>
+
+  <!-- Detalles de la Iglesia -->
+  <div id="church-details" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-center">
+      <h3 class="text-2xl font-bold text-teal-600 mb-4">Iglesia: Nuestra Señora de Loreto</h3>
+      <img src="assets/img/iglesia.png" alt="Iglesia Nuestra Señora de Loreto" class="rounded-lg mb-4 mx-auto">
+      <p class="text-gray-700 mb-4">📍 <strong>Dirección:</strong> Av. de la Iglesia, Colonia Centro, Ciudad Ejemplo</p>
+      <div id="church-map" class="w-full h-48 rounded-lg shadow-md cursor-pointer" onclick="redirectToChurchMap()"></div>
+      <button onclick="closeChurchDetails()" class="mt-4 bg-teal-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-teal-600 transition">
+        Cerrar
+      </button>
+    </div>
+  </div>
+
+  <!-- Detalles del Salón -->
+  <div id="salon-details" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-center">
+      <h3 class="text-2xl font-bold text-teal-600 mb-4">Salón Social El Detalle</h3>
+      <img src="assets/img/salon-fuera.png" alt="Salón Social El Detalle" class="rounded-lg mb-4">
+      <p class="text-gray-700 mb-4">📍 <strong>Dirección:</strong> Salón Social El Detalle, Av. Manuel M. Doria 12507, Libertad, 22400 Tijuana, B.C.</p>
+      <div id="map" class="w-full h-48 rounded-lg shadow-md cursor-pointer" onclick="redirectToMap()"></div>
+      <button onclick="closeSalonDetails()" class="mt-4 bg-teal-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-teal-600 transition">
+        Cerrar
+      </button>
     </div>
   </div>
 
@@ -132,12 +160,71 @@
 
     setInterval(updateCountdown, 1000);
 
-    // Redirigir al enlace de Google Maps
-    function redirectToMap() {
-      window.open('https://maps.app.goo.gl/Nufhfcxg2aaHMFiT8', '_blank');
+    // Funciones para abrir/cerrar detalles
+    function openChurchDetails() {
+      document.getElementById('church-details').classList.remove('hidden');
     }
 
-    // Configurar Google Maps
+    function closeChurchDetails() {
+      document.getElementById('church-details').classList.add('hidden');
+    }
+
+    function openSalonDetails() {
+      document.getElementById('salon-details').classList.remove('hidden');
+    }
+
+    function closeSalonDetails() {
+      document.getElementById('salon-details').classList.add('hidden');
+    }
+
+    // Redirecciones
+    function redirectToMap() {
+      window.open('https://maps.app.goo.gl/ArH4Zrns15TrHwps6', '_blank');
+    }
+
+    function redirectToChurchMap() {
+      window.open('https://maps.app.goo.gl/6jTVe9c7N9K9hLpZ9', '_blank');
+    }
+
+    function redirectToSalonMap() {
+      window.open('https://maps.app.goo.gl/ArH4Zrns15TrHwps6', '_blank');
+    }
+
+    function redirectToWhatsApp() {
+      const name = document.getElementById('name').value;
+      if (name) {
+        const url = `https://wa.me/5211234567890?text=Hola,%20soy%20${encodeURIComponent(name)}.%20Confirmo%20mi%20asistencia%20a%20los%2015%20años%20de%20Damian.`;
+        window.open(url, '_blank');
+      } else {
+        alert('Por favor, ingresa tu nombre antes de confirmar.');
+      }
+    }
+    // Configurar Google Maps para la iglesia
+    function initChurchMap() {
+      const churchLocation = { lat: 32.53569209402231, lng: -117.001814333509737 }; // Coordenadas de la iglesia
+      const map = new google.maps.Map(document.getElementById("church-map"), {
+        zoom: 15,
+        center: churchLocation,
+      });
+      new google.maps.Marker({
+        position: churchLocation,
+        map: map,
+        title: "Iglesia Nuestra Señora de Loreto",
+      });
+    }
+
+    // Mostrar detalles de la iglesia
+    function openChurchDetails() {
+      document.getElementById('church-details').classList.remove('hidden');
+      initChurchMap();
+    }
+
+    // Cerrar detalles de la iglesia
+    function closeChurchDetails() {
+      document.getElementById('church-details').classList.add('hidden');
+    }
+
+    // Configurar Google Maps para el salón
     function initMap() {
       const location = { lat: 32.53531508366249, lng: -117.00204054111555 }; // Coordenadas del salón
       const map = new google.maps.Map(document.getElementById("map"), {
@@ -147,42 +234,43 @@
       new google.maps.Marker({
         position: location,
         map: map,
-        title: "Salón Fiestas Felices",
+        title: "Salón Social El Detalle",
       });
     }
 
-        // Guardar el número original de recepciones
+    // Guardar el número original de recepciones
     let originalReceptions;
 
     function setReceptionNumber() {
-    const params = new URLSearchParams(window.location.search);
-    const receptions = params.get('receptions');
-    const receptionElement = document.getElementById('reception-number');
+      const params = new URLSearchParams(window.location.search);
+      const receptions = params.get('receptions');
+      const receptionElement = document.getElementById('reception-number');
 
-    if (receptions) {
+      if (receptions) {
         receptionElement.textContent = receptions;
         originalReceptions = receptions; // Guardar el número inicial
-    }
+      }
     }
 
     // Modificar el mensaje de WhatsApp para incluir el número original de recepciones
     function redirectToWhatsApp() {
-    const name = document.getElementById('name').value.trim();
-    const phoneNumber = "+526643467467"; // Número de WhatsApp con formato internacional
-    const defaultMessage = `¡Hola! Soy ${name}, confirmo mi asistencia a los 15 años 🎉 con ${originalReceptions} personas.`;
+      const name = document.getElementById('name').value.trim();
+      const phoneNumber = "+526643467467"; // Número de WhatsApp con formato internacional
+      const defaultMessage = `¡Hola! Soy ${name}, confirmo mi asistencia a los 15 años de Damian 🎉 con ${originalReceptions} personas.`;
 
-    if (name) {
+      if (name) {
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
         window.open(url, '_blank');
-    } else {
+      } else {
         alert("Por favor, ingresa tu nombre para confirmar.");
-    }
+      }
     }
 
     setReceptionNumber();
   </script>
 
   <!-- Google Maps API -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgBxfCS1B63jNEXlE2F8BRzRBavtvb_Q4&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaGEjDxPSZ61a402ShVhmgjEP2tO-Wotk&callback=initMap" async defer></script>
+  </script>
 </body>
 </html>
