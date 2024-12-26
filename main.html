@@ -16,7 +16,7 @@
       height: 150px;
     }
     body {
-      background-image: url('assets/img/istockphoto-1423403477-170667a.jpg');
+      background-image: url('assets/img/fondo2.jpg');
       background-size: cover;
       background-position: center;
     }
@@ -24,12 +24,13 @@
 </head>
 <body class="bg-[#E9E3D2] text-[#4D7E57] min-h-screen flex flex-col items-center">
   <!-- Sección Principal -->
-  <div class="bg-white bg-opacity-90 shadow-lg rounded-lg p-6 w-full max-w-sm mt-10 text-center">
+  <div class="bg-white bg-opacity-40 shadow-lg rounded-lg p-6 px-6 w-full max-w-sm mt-10 text-center">
     <h1 class="text-3xl font-bold text-[#4D7E57]">✨ ¡Te Invitamos a los 15 Años de Damian! ✨</h1>
-    <img src="https://via.placeholder.com/400x200?text=Foto+de+Damian" alt="Foto de Damian" class="mt-4 rounded-lg shadow-md">
-    <p class="text-[#4D7E57] mt-4">📅 <strong>Fecha:</strong> 12 de abril, 2025</p>
-    <p class="text-[#4D7E57]">⏰ <strong>Hora:</strong> 8:00 PM</p>
-    <p class="text-[#4D7E57] mb-6">📍 <strong>Dirección:</strong> Salón Social El Detalle, Av. Manuel M. Doria 12507, Libertad, 22400 Tijuana, B.C.</p>
+    <img src="assets/img/damian.jpg" alt="Foto de Damian" class="mt-4 rounded-lg shadow-md">
+    <p class="text-black mt-4">📅 <strong>Fecha:</strong> 12 de abril, 2025</p>
+    <p class="text-black">⏰ <strong>Hora de Ceremonia:</strong> 6:00 PM</p>
+    <p class="text-black">⏰ <strong>Hora de la Fiesta:</strong> 8:00 PM</p>
+    <p class="text-black mb-6">📍 <strong>Dirección:</strong> Salón Social El Detalle, Av. Manuel M. Doria 12507, Libertad, 22400 Tijuana, B.C.</p>
 
     <!-- Contador -->
     <div id="countdown" class="digital-clock text-2xl font-bold text-[#4D7E57] flex justify-between bg-[#8FB696] rounded-lg py-4 px-6 shadow-md mb-6">
@@ -52,15 +53,15 @@
     </div>
 
     <!-- Número de Recepciones -->
-    <p class="text-[#4D7E57] font-bold mb-4">Número de Recepciones: <span id="reception-number">0</span></p>
+    <p class="text-black font-bold mb-4">Número de Recepciones: <span id="reception-number">0</span></p>
 
     <!-- Indicaciones -->
-    <p class="text-[#4D7E57] font-bold mb-4">Haga doble clic para redirigir a Google Maps</p>
+    <p class="text-black font-bold mb-4">Haga doble clic para redirigir a Google Maps</p>
     <!-- Mapa -->
     <div id="map" class="w-full h-48 rounded-lg shadow-md mb-6 cursor-pointer" ondblclick="redirectToMap()"></div>
 
     <!-- Botón para Confirmar -->
-    <p class="text-[#4D7E57] mb-4">Confirma tu asistencia vía WhatsApp:</p>
+    <p class="text-black mb-4">Confirma tu asistencia vía WhatsApp:</p>
     <input 
       type="text" 
       id="name" 
@@ -76,8 +77,8 @@
 
   <!-- Sección Extendida -->
   <div class="section w-full p-6 text-center mt-10 text-white">
-    <h2 class="text-2xl font-semibold text-[#4D7E57]">Sobre el Evento</h2>
-    <p class="mt-4 text-[#4D7E57]">
+    <h2 class="text-2xl font-semibold text-black">Sobre el Evento</h2>
+    <p class="mt-4 text-black">
       Únete a la celebración de los 15 años de Damian. Será una noche inolvidable llena de alegría, música y momentos especiales. ¡Te esperamos!
     </p>
   </div>
@@ -114,8 +115,7 @@
       <img src="assets/img/iglesia.png" alt="Iglesia Nuestra Señora de Loreto" class="rounded-lg mb-4 mx-auto">
       <p class="text-[#4D7E57] mb-4">📍 <strong>Dirección:</strong> C. 19 962, Libertad, 22400 Tijuana, B.C.</p>
       <!-- Indicaciones -->
-      <p class="text-[#4D7E57] font-bold mb-4">Haga doble clic para redirigir a Google Maps</p>
-      <div id="map" class="w-full h-48 rounded-lg shadow-md cursor-pointer" ondblclick="redirectToChurchMap()"></div>
+      <p class="text-[#4D7E57] font-bold mb-4" ondblclick="redirectToChurchMap()">Haga doble clic para redirigir a Google Maps</p>
       <button onclick="closeChurchDetails()" class="mt-4 bg-[#4D7E57] text-white py-2 px-4 rounded-lg font-medium hover:bg-[#8FB696] transition">
         Cerrar
       </button>
@@ -129,8 +129,7 @@
       <img src="assets/img/salon-fuera.png" alt="Salón Social El Detalle" class="rounded-lg mb-4">
       <p class="text-[#4D7E57] mb-4">📍 <strong>Dirección:</strong> Av. Manuel M. Doria 12507, Libertad, 22400 Tijuana, B.C.</p>
       <!-- Indicaciones -->
-      <p class="text-[#4D7E57] font-bold mb-4">Haga doble clic para redirigir a Google Maps</p>
-      <div id="map" class="w-full h-48 rounded-lg shadow-md mb-6 cursor-pointer" ondblclick="redirectToSalonMap()"></div>
+      <p class="text-[#4D7E57] font-bold mb-4" ondblclick="redirectToSalonMap"()> Haga doble clic aqui para redirigir a Google Maps</p>
       <button onclick="closeSalonDetails()" class="mt-4 bg-[#4D7E57] text-white py-2 px-4 rounded-lg font-medium hover:bg-[#8FB696] transition">
         Cerrar
       </button>
